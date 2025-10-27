@@ -81,8 +81,13 @@ export default function Subscriptions() {
       <div className="mt-16">
         <h3 className="text-lg mb-4">what's included in every plan</h3>
         <ul className="space-y-2 list-disc pl-5 text-sm">
-          <li>prompt enhancer – automatically expands your idea into a detailed, camera-ready brief</li>
-          <li>live model orchestration – our AI picks the best AI tools/engines for every task in real time</li>
+          <li>
+            prompt enhancer – automatically expands your idea into a detailed, camera-ready brief
+          </li>
+          <li>
+            live model orchestration – our AI picks the best AI tools/engines for every task in real
+            time
+          </li>
           <li>secure cloud storage – access all your past generations in one place</li>
         </ul>
       </div>
@@ -93,9 +98,11 @@ export default function Subscriptions() {
           <li>prototype (current) – for investor</li>
           <li>alpha end Q2 – limited Free tier only, for private testing</li>
           <li>public beta Q3 2025 – Free & Individual tiers go live</li>
-          <li>pro / enterprise early-access Q4 2025 – invite-only pilots with rights-cleared outputs</li>
+          <li>
+            pro / enterprise early-access Q4 2025 – invite-only pilots with rights-cleared outputs
+          </li>
         </ul>
       </div>
     </div>
-  )
+  );
 }

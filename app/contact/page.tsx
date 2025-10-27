@@ -5,7 +5,7 @@ export default function Contact() {
 
       <div className="text-center max-w-2xl">
         <p className="text-xl mb-2">
-          for all enquiries, please e-mail{" "}
+          for all enquiries, please e-mail{' '}
           <a
             href="mailto:invest@humanprompt.ai"
             className="text-white hover:opacity-80 transition-opacity cursor-default hover:cursor-pointer"
@@ -14,7 +14,7 @@ export default function Contact() {
           </a>
         </p>
         <p className="text-gray-400 italic">
-          (alternate direct line:{" "}
+          (alternate direct line:{' '}
           <a
             href="mailto:stevenfarah@humanprompt.ai"
             className="text-gray-400 hover:opacity-80 transition-opacity cursor-default hover:cursor-pointer"
@@ -25,5 +25,5 @@ export default function Contact() {
         </p>
       </div>
     </div>
-  )
+  );
 }
