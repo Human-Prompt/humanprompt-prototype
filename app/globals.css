@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 16, 18, 24;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Font utilities */
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+.font-heebo {
+  font-family: var(--font-heebo);
+}
+
+/* Animation for loading shimmer effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Animation for fade in up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Animation for chat messages */
+@keyframes chatMessage {
+  from {
+    opacity: 0;
+    transform: translateY(20px) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.animate-chat-message {
+  animation: chatMessage 0.5s ease-out forwards;
+}
+
+/* Animated ellipsis for loading state */
+@keyframes dotAnimation1 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+
+@keyframes dotAnimation2 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+
+@keyframes dotAnimation3 {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  33% {
+    opacity: 1;
+  }
+}
+
+.animate-dot-1 {
+  animation: dotAnimation1 1.4s infinite;
+  animation-delay: 0s;
+  font-size: 24px;
+  line-height: 0;
+  margin: 0 2px;
+}
+
+.animate-dot-2 {
+  animation: dotAnimation2 1.4s infinite;
+  animation-delay: 0.2s;
+  font-size: 24px;
+  line-height: 0;
+  margin: 0 2px;
+}
+
+.animate-dot-3 {
+  animation: dotAnimation3 1.4s infinite;
+  animation-delay: 0.4s;
+  font-size: 24px;
+  line-height: 0;
+  margin: 0 2px;
+}
+
+.ellipsis-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 80px;
+}
