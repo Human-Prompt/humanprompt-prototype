@@ -2,7 +2,6 @@
 
 import type React from 'react';
 import { Inter, Heebo } from 'next/font/google';
-import './globals.css';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -17,11 +16,7 @@ const heebo = Heebo({
   variable: '--font-heebo',
 });
 
-export default function ClientLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function ClientLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body

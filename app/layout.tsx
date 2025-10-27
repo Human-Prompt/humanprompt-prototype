@@ -1,6 +1,7 @@
 import type React from 'react';
 import type { Metadata } from 'next';
 import ClientLayout from './ClientLayout';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'human prompt',
@@ -8,12 +9,6 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <ClientLayout>{children}</ClientLayout>;
 }
-
-import './globals.css';
