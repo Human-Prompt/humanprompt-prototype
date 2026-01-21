@@ -2,10 +2,10 @@
 
 import type React from 'react';
 
-import { useState, useRef, useEffect } from 'react';
 import { Switch } from '@/components/ui/switch';
+import { AlertCircle, Bug, Download, Film, Play, X } from 'lucide-react';
 import Image from 'next/image';
-import { Download, Film, Play, AlertCircle, X, Bug } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Model {
   id: string;
@@ -739,37 +739,53 @@ export default function Home() {
 
   // Enhanced video download function - updated to handle multiple videos
   const handleDownloadVideo = (generationId: string, videoIndex: number) => {
-    const generation = generations.find((gen) => gen.id === generationId);
-    if (!generation || !generation.videos[videoIndex]) return;
+    console.log('handleDownloadVideo called:', generationId, videoIndex);
 
-    const downloadVideo = async (videoUrl: string) => {
+    const generation = generations.find((gen) => gen.id === generationId);
+    if (!generation || !generation.videos[videoIndex]) {
+      console.error('Generation or video not found');
+      return;
+    }
+
+    const videoUrl = generation.videos[videoIndex].url;
+    console.log('Downloading video from URL:', videoUrl);
+
+    const downloadVideo = async () => {
       try {
-        // Create a temporary link to fetch the video as a blob
-        const response = await fetch(videoUrl);
+        const response = await fetch(videoUrl, {
+          method: 'GET',
+          credentials: 'omit',
+          cache: 'no-cache',
+        });
+
+        console.log('Fetch response status:', response.status);
+        console.log('Fetch response headers:', Object.fromEntries(response.headers.entries()));
+
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
 
         const blob = await response.blob();
+        console.log('Blob created, size:', blob.size, 'type:', blob.type);
+
         const blobUrl = URL.createObjectURL(blob);
 
-        // Create a temporary anchor element and trigger download
         const a = document.createElement('a');
         a.href = blobUrl;
         a.download = `generated-video-${generationId}-${videoIndex}.mp4`;
         document.body.appendChild(a);
         a.click();
 
-        // Clean up
         document.body.removeChild(a);
         setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
+        console.log('Download triggered successfully');
       } catch (error) {
         console.error('Error downloading video:', error);
         alert('Failed to download video. Please try again.');
       }
     };
 
-    downloadVideo(generation.videos[videoIndex].url);
+    downloadVideo();
   };
 
   // Helper function to extract video URL from response
